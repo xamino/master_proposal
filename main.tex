@@ -1,0 +1,75 @@
+\documentclass{thesis}
+
+% better captions:
+\usepackage[font=small,labelfont=bf]{caption}
+
+\fullname{Tamino P.S.M. Hartmann}
+\email{tamino.hartmann@uni-ulm.de}
+\headline{TODO}
+\titel{TODO}
+\jahr{2015}
+\matnr{722891}
+\gutachterA{Professor Doctor Manfred Reichert}
+\betreuer{Marc Schickler}
+\typ{Master thesis }
+\fakultaet{Engineering and Computer Science}
+\institut{Institute of Databases and Information Systems}
+
+% TODO
+\license{
+This work is licensed under the Creative Commons.
+Attribution-NonCommercial-ShareAlike 3.0 License. To view a copy of this
+license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/de/ or send a
+letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco,
+California, 94105, USA. \\ Satz: PDF-\LaTeXe
+}
+
+\hypersetup{
+	pdftitle=\pdfescapestring{\thetitel},
+	pdfauthor={\thefullname},
+ 	pdfsubject={\thetyp},
+}
+
+% hyphenations:
+\hyphenation{Ta-mi-no}
+\hyphenation{Hart-mann}
+
+\begin{document}
+\frontmatter
+\maketitle
+\clearpage
+\impressum
+
+\cleardoublepage
+%TODO this might be better differently
+\setstretch{1.4}
+
+\input{text/abstract}
+\cleardoublepage
+% \input{text/gratitude}
+
+\tableofcontents
+
+\mainmatter
+% here text
+
+\input{text/introduction.tex}
+
+\appendix
+
+\backmatter
+
+%\listoffigures
+%\listoftables
+
+% bibliograhpy
+%\bibliographystyle{alpha}
+%{\small
+%\bibliography{literature.bib}
+%}
+
+% not required for proposal
+% \clearpage
+% \erklaerung
+
+\end{document}
