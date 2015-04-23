@@ -1,7 +1,28 @@
 \documentclass[twoside]{article}
 
+%clickable links
+\usepackage{hyperref}
+% better itemize
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
 % better captions
 \usepackage[font=small,labelfont=bf]{caption}
+% text
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+% stuff
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{color}
+\usepackage[left]{eurosym}
+% show author information in pdf document properties
+\hypersetup{
+	pdftitle={Proposal},
+	pdfauthor={Tamino Hartmann}
+}
 % hyphenations:
 \hyphenation{Ta-mi-no}
 \hyphenation{Hart-mann}
@@ -25,6 +46,7 @@
 The author proposes the implementation of a peer to peer file synchronization tool over the Toxcore protocol.
 The goal is a secure, decentralized method of keeping files between computers synchronized without having to rely on trusted third parties.
 The proposed thesis would outline the conceptual work required to design and implement a software suite that fulfills these basic goals.
+This includes the specification of a protocol to facilitate the necessary communication over the data channels.
 
 \section{Motivation}
 
@@ -33,14 +55,12 @@ NOTE: THIS IS ALL VERY MUCH STILL WORK IN PROGRESS AND WILL BE DRASTICALLY REFIN
 % Problem
 
 % this paragraph might have to go, it is overly presumptuous
-The thesis is mainly motivated by the revelations of drag net surveillance by Edward Snowden.
-The lack of public discussion on the future of privacy on the internet in light of these revelations has shown that internet users are not able to see the implications of their revocation of basic privacy rights.
-Thus new software solutions are required to enable users to take back their privacy on the internet.
-However a large problem for this undertaking is that many users are comfortable with the existing services which enable the surveillance or at least do not pose a significant hindrance to them.
+The thesis is mainly motivated by the revelations of drag net surveillance by Edward Snowden and the compliance by so called trusted service providers.
+Thus new software solutions are required to enable users to take back their privacy on the internet without sacrificing usability and ease of access.
 
-% tox / whispersystems argument: we require trivially easy to use software that is in its core absolutely secure
-Solutions to enforcing privacy on the internet have existed for quite a while already.
-However many of these are deemed cumbersome by the normal user and thus avoided whenever possible.
+A range of software has come into the spotlight of public disclosure since the revelations that already work towards this goal.
+One example is the Open Whispersystems group.
+Their stated goal on the website is "[...] we're working to advance the state of the art for secure communication, while simultaneously making it easy for everyone to use."~\cite{web:site:whispersystems:about}.
 
 % move the motivation over to enabling privacy of data
 This proposed thesis is to tackle the problem of cloud data storage, often used for distributed file access across multiple computers.
@@ -82,5 +102,10 @@ The words in parentheses are the suggested ones from the online text on proposal
 \item Contributions to knowledge
 \item Descriptions of proposed chapters in dissertation
 \end{itemize}
+
+\bibliographystyle{alphadin} 	% letter + year sorted
+{\small %smaller text means better URLs and compacter presentation
+\bibliography{cite}
+}
 
 \end{document}
