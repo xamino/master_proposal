@@ -1,4 +1,4 @@
-\documentclass[twoside]{article}
+\documentclass[a4paper,10pt,twoside]{article}
 
 %clickable links
 \usepackage{hyperref}
@@ -59,14 +59,13 @@ The thesis is mainly motivated by the revelations of drag net surveillance by Ed
 Thus new software solutions are required to enable users to take back their privacy on the internet without sacrificing usability and ease of access.
 
 A range of software has come into the spotlight of public disclosure since the revelations that already work towards this goal.
-One example is the Open Whispersystems group.
+One example is the Open Whisper Systems group.
 Their stated goal on the website is "[...] we're working to advance the state of the art for secure communication, while simultaneously making it easy for everyone to use."~\cite{web:site:whispersystems:about}.
+Another example is the Tox instant messenger community that is building a free, open source, peer to peer Skype alternative~\cite{web:site:tox}.
 
 % move the motivation over to enabling privacy of data
-This proposed thesis is to tackle the problem of cloud data storage, often used for distributed file access across multiple computers.
-Existing solutions mainly rely on specific servers on the internet that offer storage space.
-Access is granted over the server's owners via proprietary closed source software.
-% the above requires reworking
+The proposed thesis is to tackle the problem of cloud data storage, often used for distributed file access across multiple computers.
+Existing examples of this include Google Drive~\cite{web:site:gdrive} and Dropbox~\cite{web:site:dropbox}.
 While the data transfered is now encrypted in transit in most cases, it is not encrypted while residing on the servers.
 This allows anyone with access to the server to fully access the data, so long as it was not already previously encrypted by the user.
 Before Snowden the third parties were entrusted with the safe keeping of the stored data under the presumption that no unauthorized access was allowed or even possible.
