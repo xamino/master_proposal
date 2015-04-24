@@ -86,6 +86,9 @@ Once running the software should have a negligible footprint on the client's pee
 \section{Scope and Features}
 
 In the following section we will take a look at the proposed scope and feature set of the thesis.
+
+\subsection{Software Goals}
+
 The stated goal is the implementation of a software set that enables the following criteria to be met.
 
 \begin{description}[leftmargin=2em,style=nextline,noitemsep,nolistsep]
@@ -99,10 +102,45 @@ The stated goal is the implementation of a software set that enables the followi
 	This removes the need to differentiate between utilizing public or private networks.
 	The user could always rest assured that no eavesdropping can happen, even if the network is unsecured.
 \item[Focus on ease of use]
-	%TODO
+	Secure software has the reputation of being cumbersome and hard to use correctly.
+	By utilizing existing libraries we intend to make the software as easy to use as possible to allow a widespread adoption.
+	This means that it must run by default upon installation after a simple setup process.
+	Documentation and usability shall be one of the primary focuses.
+	Technical details and complex settings shall be accessible but not required for extensive use.
 \item[Encrypted third party capability]
-	%TODO
+	To enable full ease of use parity with third party services, peers shall be configurable to be encrypted data stores.
+	This would mean that these peers retain a copy of the stored data but fully encrypted and unaccessible.
+	Thus third party services may offer cloud storage while retaining the full trust of the user.
 \end{description}
+
+\subsection{Software Specifis}
+
+% Golang
+It is our intention to implement the core program in Golang~\cite{web:site:golang}.
+The reason for this is primarily because Golang, or as more commonly known as Go, allows us to build concurrent software easily.
+We plan on utilizing concurrency to make full use of parallel work to speed up all processing heavy work.
+This will most likely include encryption and decryption of large data chunks, compression and decompression of the same to allow efficient network communications, and fast queries over large file directories.
+Go is also a statically-typed language with garbage collection, type safety, and a large standard library: this removes a number of security risks from the start such as the infamous stack overflow attack.
+Furthermore Go projects compile into a single executable file with all dependencies statically linked and included.
+This decreases the perceived complexity of the software and allow easy portability.
+Go also allows easy cross platform compilation, allowing simple support for a multitude of platforms.
+Notably this includes ARM for mobile devices such as Android.
+
+% tox
+%TODO
+
+\subsection{Thesis Scope}
+
+The thesis is intended as an implementation work as a proof of concept that the proposed software set is implementable.
+Therefore the goal is a working software suite.
+
+To facilitate the implementation of the software we will start by planning the time frame and alloted work packages.
+Then we will analyze existing solutions and highlight positive and negative aspects of comparable services and how they relate to our thesis.
+Based on this we will plan out the exact feature set and required implementation work for our proposed software.
+This includes the specification of existing work we will base our work on, namely the Tox protocol, and the API for system communication.
+Then we will discuss the actual implementation.
+Once done, we will analyze the results and compare them to the previously discussed comparable services.
+Finally future improvements and extensions will be offered up in the hope that future work will be done to extend on our software.
 
 \section{Structure of Proposal}
 
