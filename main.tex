@@ -50,10 +50,6 @@ This includes the specification of a protocol to facilitate the necessary commun
 
 \section{Motivation}
 
-NOTE: THIS IS ALL VERY MUCH STILL WORK IN PROGRESS AND WILL BE DRASTICALLY REFINED OVER THE NEXT 2 WEEKS!
-
-% Problem
-
 % this paragraph might have to go, it is overly presumptuous
 The thesis is mainly motivated by the revelations of drag net surveillance by Edward Snowden and the compliance by so called trusted service providers.
 Thus new software solutions are required to enable users to take back their privacy on the internet without sacrificing usability and ease of access.
@@ -72,21 +68,41 @@ Before Snowden the third parties were entrusted with the safe keeping of the sto
 However this trust has been lost now that the public has been made aware of the possibilities of state organizations to access any data without due legal process.
 % maybe expand a bit on the trust things? --> why do we require a trusted 3rd party? what benefit does it give the user?
 
-%TODO an expansion on why security and privacy generally matter might be of importance too
+One solution to this problem is encrypting everything client side before uploading the data to third parties.
+An example of a service that does this is Boxcryptor~\cite{web:site:boxcryptor}.
+However this principle requires active involvement from the user and is thus an extra hurdle in securing one's data.
+Perhaps simply forgoing a third party would be a possible solution.
+Examples of existing peer to peer solutions are BitTorrent Sync~\cite{web:site:bittorrent_sync} and Syncthing~\cite{web:site:synthing}.
+However now the main advantage of a third party is lost: namely the ability to store data in a way that it is readily accessible even if every peer is currently offline.
+Syncthing notably explicitly states that the user can enable access for trusted third parties, but as it stands now this third party would receive an unencrypted access to any data stored there.
 
-% Importance of Topic
-The proposed software is a further step into a fully decentralized and secure internet application environment which would harden users' privacy.
+% importance of topic
+Therefore we propose the implementation of a file synchronization program that solves these problems.
+The proposed software suite should primarily utilize strong encryption to make unauthorized data access as hard as possible.
+While the core features must be independent of cloud services, encrypted data storage for offline access should still be possible and allow third party services without having to entrust cleartext access.
+Finally the software should be as easy to use as possible to enable anyone to use it after a simple setup process.
+Once running the software should have a negligible footprint on the client's peers.
 
-\section{Old}
+\section{Scope and Features}
 
-First and foremost all communication between clients must be fully encrypted.
-The system should be internet agnostic.
-This is to mean that while the synchronization can be run via the internet, it should also work on a LAN without external internet access.
-Ideally this would allow file synchronization completely off line by using mobile devices as data bridges.
+In the following section we will take a look at the proposed scope and feature set of the thesis.
+The stated goal is the implementation of a software set that enables the following criteria to be met.
 
-TODO: introduce and explain required features of Tox and why they fulfill the general features
-
-TODO: shouldn’t this maybe be in existing work?
+\begin{description}[leftmargin=2em,style=nextline,noitemsep,nolistsep]
+\item[Peer to peer]
+	Data should be transfered directly from peer to peer, where both peers are trusted parties by the user.
+	This removes the need for third party requirements such as internet access to an off site server.
+	As an added bonus the software should be capable of running fully without internet access, allowing data transfers within a user's intranet to run unhindered of asymmetric internet upload speeds.
+	Building on this it would be capable to use a user's mobile devices as data bridges between to unconnected intranets, keeping the stored data fully off the public internet.
+\item[Secure transport]
+	In the case where data is to be transported between two clients, this connection must always be as secure as technically possible.
+	This removes the need to differentiate between utilizing public or private networks.
+	The user could always rest assured that no eavesdropping can happen, even if the network is unsecured.
+\item[Focus on ease of use]
+	%TODO
+\item[Encrypted third party capability]
+	%TODO
+\end{description}
 
 \section{Structure of Proposal}
 
