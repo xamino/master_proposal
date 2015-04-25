@@ -32,12 +32,10 @@
 % define title stuff
 \title{\textbf{Secure Peer to Peer File Synchronization via the Tox Protocol}\\{\Large Master Thesis Proposal}}
 \author{Tamino PSM Hartmann}
-\date{April 2015}
+\date{\today}
 % make title
 \maketitle
 
-% no section numbering (this document is small enough not to require that)
-\setcounter{secnumdepth}{0}
 % define better headings (page number off to the side, etc)
 \pagestyle{headings}
 
@@ -127,7 +125,11 @@ Go also allows easy cross platform compilation, allowing simple support for a mu
 Notably this includes ARM for mobile devices such as Android.
 
 % tox
-%TODO
+Since up to date and successful peer to peer communication channel encryption is non trivial, we furthermore intend to build on an existing software solution.
+The before mentioned Tox chat program is built on the libtoxcore library~\cite{web:site:toxcore}.
+While primarily intended for the chat implementation, the Toxcore library was also explicitly kept separate from the chat code to enable other applications to build on it.
+We propose to make use of this and utilize the provided peer to peer fully encrypted communication support directly.
+This will also allow us to focus our development work on providing a working usable software solution on top of encryption without having to implement an encrypted network protocol ourselves.
 
 \subsection{Thesis Scope}
 
@@ -142,19 +144,15 @@ Then we will discuss the actual implementation.
 Once done, we will analyze the results and compare them to the previously discussed comparable services.
 Finally future improvements and extensions will be offered up in the hope that future work will be done to extend on our software.
 
-\section{Structure of Proposal}
+\section{Conclusion}
 
-The words in parentheses are the suggested ones from the online text on proposals.
-
-\begin{itemize}
-\item Introduction (Summary)
-\item Motivation (Hypothesis, problem or question) (Importance of topic)
-\item Related Word (Prior research on topic)
-\item ??? (Research approach or methodology)
-\item Limitations and key assumptions
-\item Contributions to knowledge
-\item Descriptions of proposed chapters in dissertation
-\end{itemize}
+% contribution
+The proposed thesis would contribute a working, fully communication encrypted, easy to use file synchronization without relying on, but allowing third party data storage services.
+We hope to contribute a mobile client for Android and a web browser client for cloud access beyond the personal computer program.
+Given the current alternatives we believe that no truly satisfactory solution exists so far that covers all of the mentioned points.
+Furthermore the thesis will allow to see how the Toxcore protocol is suited for new applications.
+It will also show how Golang is suited to such a task.
+From a more broad viewpoint we hope that the proposed thesis will extend the suite of secure software that disproves the notion that secure software is by default unusable for normal computer users while retaining full security over the user's data.
 
 \bibliographystyle{alphadin} 	% letter + year sorted
 {\small %smaller text means better URLs and compacter presentation
