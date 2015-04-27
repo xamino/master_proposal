@@ -48,7 +48,6 @@ This includes the specification of a protocol to facilitate the necessary commun
 
 \section{Motivation}
 
-% this paragraph might have to go, it is overly presumptuous
 The thesis is mainly motivated by the revelations of drag net surveillance by Edward Snowden and the compliance by so called trusted service providers.
 Thus new software solutions are required to enable users to take back their privacy on the internet without sacrificing usability and ease of access.
 
@@ -120,9 +119,9 @@ We plan on utilizing concurrency to make full use of parallel work to speed up a
 This will most likely include encryption and decryption of large data chunks, compression and decompression of the same to allow efficient network communications, and fast queries over large file directories.
 Go is also a statically-typed language with garbage collection, type safety, and a large standard library: this removes a number of security risks from the start such as the infamous stack overflow attack.
 Furthermore Go projects compile into a single executable file with all dependencies statically linked and included.
-This decreases the perceived complexity of the software and allow easy portability.
+This decreases the perceived complexity of the software and allows easy portability.
 Go also allows easy cross platform compilation, allowing simple support for a multitude of platforms.
-Notably this includes ARM for mobile devices such as Android.
+Notably this includes ARM for mobile devices such as Android~\cite{web:site:android}.
 
 % tox
 Since up to date and successful peer to peer communication channel encryption is non trivial, we furthermore intend to build on an existing software solution.
@@ -130,6 +129,34 @@ The before mentioned Tox chat program is built on the libtoxcore library~\cite{w
 While primarily intended for the chat implementation, the Toxcore library was also explicitly kept separate from the chat code to enable other applications to build on it.
 We propose to make use of this and utilize the provided peer to peer fully encrypted communication support directly.
 This will also allow us to focus our development work on providing a working usable software solution on top of encryption without having to implement an encrypted network protocol ourselves.
+
+% hadoop
+As a possible improvement we also intend to see if the Hadoop Distributed File System~\cite{web:site:hadoop}, short HDFS, can be utilized to improve the server client in terms of reliance.
+As the server client will have to be capable of handling many different user's data, with conceivably large file sizes, the benefits of integrating HDFS directly into the server client seem obvious.
+
+\subsection{Software Scope}
+
+In short we hope to accomplish the implemenation of the following programs.
+
+\begin{description}[leftmargin=2em,style=nextline,noitemsep,nolistsep]
+	\item[User Peer]
+		% MUST have
+		The primary user software and must have goal of the proposed thesis.
+		Runs in the background of the user's system and offers up any functionality required for directory synchronization.
+		Notably includes a graphical user interface that allows the management of connections and directories in an easy to use manner.
+		% specifying other peers as encrypted only should be implemented here too
+	\item[Mobile Peer]
+		% COULD have?
+		Mobile counter part to the user peer and considered as a should have goal.
+		Should be implemented as an Android application and build on the software already written for the user peer.
+		% Here the scope the will extend to include shadow files
+	\item[Server Peer]
+		% SHOULD have
+		The server peer will build on HDFS and offer a single program that runs on a dedicated server to offer cloud data storage in combination with the peers.
+		A server peer will always only store encrypted data.
+		% COULD have (far out)
+		A useful extension however would be the possibility to access stored data via a web interface, in which case a web application would handle the decryption on the web browser client side after the user has given valid credentials.
+\end{description}
 
 \subsection{Thesis Scope}
 
@@ -139,7 +166,7 @@ Therefore the goal is a working software suite.
 To facilitate the implementation of the software we will start by planning the time frame and alloted work packages.
 Then we will analyze existing solutions and highlight positive and negative aspects of comparable services and how they relate to our thesis.
 Based on this we will plan out the exact feature set and required implementation work for our proposed software.
-This includes the specification of existing work we will base our work on, namely the Tox protocol, and the API for system communication.
+This includes the specification of existing work we will base our work on, namely the Tox protocol, specifying the API, and HDFS.
 Then we will discuss the actual implementation.
 Once done, we will analyze the results and compare them to the previously discussed comparable services.
 Finally future improvements and extensions will be offered up in the hope that future work will be done to extend on our software.
